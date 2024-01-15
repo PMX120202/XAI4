@@ -1,0 +1,15 @@
+Epoch 1, Test Loss: 3.7053, Test MAPE: 0.1049, Test RMSE: 6.8872 
+Epoch 2, Test Loss: 3.5841, Test MAPE: 0.1040, Test RMSE: 6.7048 
+Epoch 3, Test Loss: 3.5030, Test MAPE: 0.0993, Test RMSE: 6.5332 
+Epoch 4, Test Loss: 3.4887, Test MAPE: 0.1010, Test RMSE: 6.4279 
+Epoch 5, Test Loss: 3.4857, Test MAPE: 0.1031, Test RMSE: 6.5527 
+Epoch 6, Test Loss: 3.4538, Test MAPE: 0.1022, Test RMSE: 6.4698 
+Epoch 7, Test Loss: 3.4191, Test MAPE: 0.0995, Test RMSE: 6.3429 
+Epoch 8, Test Loss: 3.3700, Test MAPE: 0.0929, Test RMSE: 6.2972 
+Epoch 9, Test Loss: 3.3678, Test MAPE: 0.0937, Test RMSE: 6.3245 
+Epoch 10, Test Loss: 3.3759, Test MAPE: 0.0916, Test RMSE: 6.3263 
+Epoch 11, Test Loss: 3.3176, Test MAPE: 0.0957, Test RMSE: 6.2006 
+Epoch 12, Test Loss: 3.3033, Test MAPE: 0.0932, Test RMSE: 6.1642 
+Epoch 13, Test Loss: 3.2973, Test MAPE: 0.0930, Test RMSE: 6.1248 
+Epoch 14, Test Loss: 3.3072, Test MAPE: 0.0897, Test RMSE: 6.1424 
+Epoch 15, Test Loss: 3.2626, Test MAPE: 0.0901, Test RMSE: 6.0878 

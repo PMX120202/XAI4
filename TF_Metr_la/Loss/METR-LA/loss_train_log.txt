@@ -1,0 +1,15 @@
+Epoch 1, Training Loss: 3.9253, Training MAPE: 0.1086, Training RMSE: 7.6686 
+Epoch 2, Training Loss: 3.6454, Training MAPE: 0.1010, Training RMSE: 7.2624 
+Epoch 3, Training Loss: 3.5698, Training MAPE: 0.0994, Training RMSE: 7.1179 
+Epoch 4, Training Loss: 3.5235, Training MAPE: 0.0982, Training RMSE: 7.0291 
+Epoch 5, Training Loss: 3.4812, Training MAPE: 0.0968, Training RMSE: 6.9451 
+Epoch 6, Training Loss: 3.4496, Training MAPE: 0.0958, Training RMSE: 6.8871 
+Epoch 7, Training Loss: 3.4290, Training MAPE: 0.0952, Training RMSE: 6.8490 
+Epoch 8, Training Loss: 3.4089, Training MAPE: 0.0945, Training RMSE: 6.8016 
+Epoch 9, Training Loss: 3.3822, Training MAPE: 0.0936, Training RMSE: 6.7496 
+Epoch 10, Training Loss: 3.3690, Training MAPE: 0.0930, Training RMSE: 6.7208 
+Epoch 11, Training Loss: 3.3478, Training MAPE: 0.0923, Training RMSE: 6.6728 
+Epoch 12, Training Loss: 3.3352, Training MAPE: 0.0919, Training RMSE: 6.6433 
+Epoch 13, Training Loss: 3.3283, Training MAPE: 0.0917, Training RMSE: 6.6284 
+Epoch 14, Training Loss: 3.3089, Training MAPE: 0.0909, Training RMSE: 6.5882 
+Epoch 15, Training Loss: 3.2927, Training MAPE: 0.0904, Training RMSE: 6.5520 

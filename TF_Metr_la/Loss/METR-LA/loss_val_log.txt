@@ -1,0 +1,15 @@
+Epoch 1, Val Loss: 3.5126, Val MAPE: 0.0995, Val RMSE: 6.5058 
+Epoch 2, Val Loss: 3.3866, Val MAPE: 0.0981, Val RMSE: 6.3010 
+Epoch 3, Val Loss: 3.3125, Val MAPE: 0.0941, Val RMSE: 6.1448 
+Epoch 4, Val Loss: 3.3100, Val MAPE: 0.0961, Val RMSE: 6.0559 
+Epoch 5, Val Loss: 3.3110, Val MAPE: 0.0982, Val RMSE: 6.1700 
+Epoch 6, Val Loss: 3.2657, Val MAPE: 0.0968, Val RMSE: 6.0728 
+Epoch 7, Val Loss: 3.2520, Val MAPE: 0.0953, Val RMSE: 5.9923 
+Epoch 8, Val Loss: 3.2055, Val MAPE: 0.0889, Val RMSE: 5.9668 
+Epoch 9, Val Loss: 3.2034, Val MAPE: 0.0896, Val RMSE: 5.9660 
+Epoch 10, Val Loss: 3.2108, Val MAPE: 0.0877, Val RMSE: 5.9774 
+Epoch 11, Val Loss: 3.1647, Val MAPE: 0.0917, Val RMSE: 5.8494 
+Epoch 12, Val Loss: 3.1621, Val MAPE: 0.0897, Val RMSE: 5.8490 
+Epoch 13, Val Loss: 3.1413, Val MAPE: 0.0891, Val RMSE: 5.7923 
+Epoch 14, Val Loss: 3.1524, Val MAPE: 0.0859, Val RMSE: 5.8457 
+Epoch 15, Val Loss: 3.1162, Val MAPE: 0.0864, Val RMSE: 5.7750 
