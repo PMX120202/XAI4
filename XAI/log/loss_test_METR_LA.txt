@@ -1,0 +1,11 @@
+Sample 0, Test MAE: 0.0146, Test MAPE: 0.0202, Test RMSE: 0.0221 
+Sample 1, Test MAE: 0.0125, Test MAPE: 0.0047, Test RMSE: 0.0265 
+Sample 2, Test MAE: 0.0182, Test MAPE: 0.0384, Test RMSE: 0.0333 
+Sample 3, Test MAE: 0.0135, Test MAPE: 0.0195, Test RMSE: 0.0328 
+Sample 4, Test MAE: 0.0121, Test MAPE: 0.0071, Test RMSE: 0.0300 
+Sample 5, Test MAE: 0.0203, Test MAPE: 0.1896, Test RMSE: 0.0486 
+Sample 6, Test MAE: 0.0329, Test MAPE: 0.0548, Test RMSE: 0.0642 
+Sample 7, Test MAE: 0.0162, Test MAPE: 0.2058, Test RMSE: 0.0386 
+Sample 8, Test MAE: 0.0328, Test MAPE: 0.0179, Test RMSE: 0.0685 
+Sample 9, Test MAE: 0.0326, Test MAPE: 0.0308, Test RMSE: 0.0670 
+Sample 10, Test MAE: 0.0164, Test MAPE: 0.0203, Test RMSE: 0.0235 

@@ -11,7 +11,7 @@ from torch import nn, Tensor, optim
 
 
 import util
-from engine import Engine
+# from engine import Engine
 from pertubate import FadeMovingAverage1
 from graphwavenet.graphwavenet import GraphWaveNet
 import argparse
@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--device', type=str, default='cuda', help='device to run the model on')
 parser.add_argument('--data', type=str, default='store/METR-LA', help='data path')
-parser.add_argument('--adjdata', type=str, default='store/adj_mx.pkl', help='adj data path')
+parser.add_argument('--adj_data', type=str, default='store/adj_mx.pkl', help='adj data path')
 
 parser.add_argument('--epochs', type=int, default=15, help='')
 parser.add_argument('--batch_size', type=int, default=16, help='batch size')
@@ -32,28 +32,19 @@ parser.add_argument('--weight_decay', type=float, default=0.0001, help='weight d
 
 parser.add_argument('--dropout', type=float, default=0.3, help='dropout rate')
 parser.add_argument('--print_every', type=int, default=50, help='')
-parser.add_argument('--save1', type=str, default='saved_models/nbeatsODE2', help='save path')
-parser.add_argument('--save2', type=str, default='saved_models/nbeatsODE2_1', help='save path')
-parser.add_argument('--save3', type=str, default='saved_models/nbeatsODE2_2', help='save path')
-parser.add_argument('--save4', type=str, default='saved_models/nbeatsODE2_3', help='save path')
+parser.add_argument('--save', type=str, default='saved_models/dynamask', help='save path')
+parser.add_argument('--log', type=str, default='log/dynamask', help='save path')
 
-parser.add_argument('--savelog2_1', type=str, default='Log/BeatsODE2_1', help='save path')
-parser.add_argument('--savelog2_2', type=str, default='Log/BeatsODE2_2', help='save path')
-parser.add_argument('--savelog', type=str, default='Log/BeatsODE2', help='save path')
-
-parser.add_argument('--context_window', type=int, default=12, help='sequence length')
-parser.add_argument('--target_window', type=int, default=12, help='predict length')
-parser.add_argument('--patch_len', type=int, default=1, help='patch length')
-parser.add_argument('--stride', type=int, default=1, help='stride')
 parser.add_argument('--blackbox_file', type=str, default='save_blackbox/G_T_model_1.pth', help='blackbox .pth file')
-parser.add_argument('--iter_epoch', type=str, default=1, help='using for save pth file')
 
 parser.add_argument('--num_nodes', type=int, default=207, help='number of nodes')
 parser.add_argument('--timestep', type=str, default=12, help='time step')
 parser.add_argument('--input_dim', type=str, default=2, help='channels')
-parser.add_argument('--output_dim', type=str, default=2, help='channels')
-parser.add_argument('--hidden', type=str, default=64, help='hidden layers')
-parser.add_argument('--num_layer', type=str, default=4, help='number layers')
+parser.add_argument('--output_dim', type=str, default=1, help='channels')
+parser.add_argument('--samples', type=str, default=10, help='samples data')
+parser.add_argument('--sample_iters', type=str, default=1000, help='___')
+parser.add_argument('--initial_mask_coeff', type=str, default=0.5, help='___')
+parser.add_argument('--reg_coeff', type=str, default=0.07, help='___')
 
 args = parser.parse_args()
 
@@ -90,7 +81,7 @@ def main():
 
     model = GraphWaveNet(207, 2, 1, 12).to(device)
 
-    model.load_state_dict(torch.load(args.black_box_file))
+    model.load_state_dict(torch.load(args.blackbox_file))
    
     adj_mx = torch.tensor(adj_mx).to(device)
     
@@ -104,7 +95,7 @@ def main():
     
     
     print('start training...', flush=True)
-    
+    log_file_test = open('loss_test_log.txt', 'w')
     l2_reg_coeff= 0.08
     
     for i, sample in enumerate(samples):
@@ -150,6 +141,20 @@ def main():
                 log = 'Iter: {:03d}, Train MAE: {:.4f}, MAPE: ' + '{:.4f}, RMSE: {:.4f}'
                 print(log.format(iter, mae[-1], mape[-1], rmse[-1]), flush=True)
             
+        mtest_loss = np.mean(mae)
+        mtest_mape = np.mean(mape)
+        mtest_rmse = np.mean(rmse)
+        
+        # log = 'sample: {:03d}, Test MAE: {:.4f}, Test MAPE: {:.4f}, ' + 'Test RMSE: {:.4f}'
+        print(f'Epoch {i}, Test Loss: {mtest_loss:.4f}, Test MAPE: {mtest_mape:.4f}, Test RMSE: {mtest_rmse:.4f} \n')
+
+        # print(log.format(sample, 
+        #                  mtest_loss,
+        #                  mtest_mape,
+        #                  mtest_rmse)) 
+        
+        log_file_test.write(f'Epoch {i}, Test Loss: {mtest_loss:.4f}, Test MAPE: {mtest_mape:.4f}, Test RMSE: {mtest_rmse:.4f} \n')
+        log_file_test.flush()
             
         y_binary = torch.round(y).squeeze(-1)
         mask = torch.tensor(mask)

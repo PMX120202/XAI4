@@ -145,7 +145,7 @@ def masked_mape(preds, labels, null_val=np.nan):
     loss = torch.abs(preds - labels) / labels
     loss = loss * mask
     loss = torch.where(torch.isnan(loss), torch.zeros_like(loss), loss)
-    return torch.mean(loss)
+    return torch.abs(torch.mean(loss))
 
 def metric(pred, real):
     mae = masked_mae(pred, real, 0.0).item()
