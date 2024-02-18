@@ -19,8 +19,8 @@ parser = argparse.ArgumentParser()
 """
 
 parser.add_argument('--device', type=str, default='cuda', help='device to run the model on')
-parser.add_argument('--data', type=str, default='store/PEMS-BAY', help='data path')
-parser.add_argument('--adj_data', type=str, default='store/adj_mx_bay.pkl', help='adj data path')
+parser.add_argument('--data', type=str, default='store/METR-LA', help='data path')
+parser.add_argument('--adj_data', type=str, default='store/adj_mx.pkl', help='adj data path')
 
 parser.add_argument('--epochs', type=int, default=15, help='')
 parser.add_argument('--batch_size', type=int, default=16, help='batch size')
@@ -58,7 +58,9 @@ def main():
     permutation = np.random.permutation(len(dataloader['x_test']))
     shuffled_testx = dataloader['x_test'][permutation]
     samples = shuffled_testx[:args.samples]
-    print(samples.shape)
+    
+    
+    
     
     # load blackbox
 
@@ -87,6 +89,7 @@ def main():
         print("X: ", x.shape)
         y = model(x, adj_mx)
         y= y[:, :, :, 0:1]
+        # y= scaler.inverse_transform(y)
         # y=y.squeeze(0)
         print("y: ", y.shape)
         # [time_steps, num_nodes]
@@ -107,7 +110,7 @@ def main():
             xm = pertubate.apply(x, mask)
             ym = model(xm, adj_mx)
             ym= ym[:, :, :, 0:1]
-            
+            # ym= scaler.inverse_transform(ym)
             loss= util.masked_mae(ym, y)
             mae_loss= util.masked_mae(ym, y)
             l2_reg = args.reg_coeff * torch.sum(mask**2)
@@ -127,6 +130,8 @@ def main():
             if iter % args.print_every == 0:
                 log = 'Iter: {:03d}, Test MAE: {:.4f}, MAPE: ' + '{:.4f}, RMSE: {:.4f}'
                 print(log.format(iter, mae[-1], mape[-1], rmse[-1]), flush=True)
+                
+            
         
         mtest_loss = np.mean(mae)
         mtest_mape = np.mean(mape)
@@ -156,7 +161,13 @@ def main():
         # print(f'AUC Score: {auc_score:.4f}')
 
         #filename = args.save + '/saliency_' + str(i) + '.npz'
-        filename = args.save + '/saliency_PEMS_BAY_' + str(i) + '.npz'
+        
+        
+        filename1 = args.save + '/sample_METR_LA_' + str(i) + '.npz'
+        # with open(filename, 'w') as f:
+        np.savez(filename1, sample)
+        
+        filename = args.save + '/saliency_METR_LA_' + str(i) + '.npz'
         # with open(filename, 'w') as f:
         np.savez(filename, mask.detach().cpu().numpy())
         

@@ -49,7 +49,10 @@ class Engine():
         forecast = forecast.transpose(-3, -1)
         
         real = torch.unsqueeze(real_val, dim=1)
+        print(real.shape)
         predict = self.scaler.inverse_transform(forecast)
+        
+        print("predictreal ",predict.shape)
 
         loss = self.loss(predict, real, 0.0)
         loss.backward()

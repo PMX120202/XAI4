@@ -1,1 +1,0 @@
-Epoch 0, Test Loss: 10.1421, Test MAPE: -0.0571, Test RMSE: 0.2424 
