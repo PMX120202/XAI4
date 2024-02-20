@@ -37,7 +37,10 @@ giá độ chính xác của mô hình của chúng em và phương pháp đối
 đại nhất trên hai tập dữ liệu: METR-LA và PEMS-BAY. Qua đó, phương
 pháp đề xuất của chúng em có kết quả vượt trội hơn so với các phương
 pháp đối sánh.
-
+- BeatsODE
+<img src="pic/BeatsODE.png"/>
+- XAI
+<img src="pic/Dynamask.png"/>
 #### Tập dữ liệu: 
 - Sử dụng tập dataset METR-LA và PEMS-BAY, có thể tại và sử dụng tại [Google Drive](https://drive.google.com/drive/folders/10FOTa6HXPqX8Pf5WRoRwcFnW9BrNZEIX)
 - Chúng em  thực hiện các bước tiền xử lý dữ liệu giống như trong nghiên cứu của nhóm tác giả trong paper [DCRNN](https://arxiv.org/pdf/1707.01926.pdf)
